@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>How is your day today?</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="index.js"></script>
+</head>
+
+<body ng-app="hiydModule" ng-controller="hiydCtrl">
+    <h4
+        style="text-align: center;
+        height: 50px;
+        font-size: 30px;
+        color: palevioletred;"
+    >Music for Your Day</h4>
+    <div style="width: 60%; margin: 0 auto;">
+        <div>
+            <div>Top Album: </div>
+            <div id="top"></div>
+        </div>
+        <div>Hey,</div>
+
+        <div>
+            <label class="label label-default" style="display: block; width: 200px;">How is your day today?</label>
+            <div style="display: inline-flex; width: 100%">
+                <input id='search' class="form-control" style="" />
+                <button class="btn btn-danger" id='howisyourday'>Submit</button>
+            </div>
+        </div>
+        <div id="list"/>
+    </div>
+    <script id="tracksTemplate" type="text/x-handlebars-template">
+        <h1>Track</h1>
+        <div class="media">
+            <div class="pull-left">
+                <img class="media-object" width="150" src="{{album.images.0.url}}" />
+            </div>
+            <div class="media-body">
+                <dl class="dl-horizontal">
+                    <dt>Keyword</dt><dd class="clearfix">{{keyword}}</dd>
+                    <dt>Album</dt><dd class="clearfix">{{album.name}}</dd>
+                    <dt>Spotify URL</dt><dd><a href = '{{album.external_urls.spotify}}'>{{album.external_urls.spotify}}</a></dd>
+                    <dt>Artist</dt><dd><a href="{{artists.0.external_urls.spotify}}">{{artists.0.name}}</a></dd>
+                    <dt>Link</dt><dd><a href="{{external_urls.spotify}}">{{external_urls.spotify}}</a></dd>
+                    <dt>Name</dt><dd>{{name}}</dd>
+                    <dt>Preview</dt><dd class="clearfix"><audio controls src="{{preview_url}}"/></dd>
+                </dl>
+            </div>
+        </div>
+    </script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
+</body>
+</html>
